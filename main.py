@@ -22,10 +22,13 @@ while True:
         nomeGame = input('Nome do game: ')
         try:
 		notaGame = float(input('Nota do game (0.0 à 10): '))
-		cadastrarGame(arquivo, nomeGame, notaGame)
-		print("Game {} cadastrado com a nota {} \n".format(nomeGame, notaGame))
+		if 0 <= notaGame <= 10:
+			cadastrarGame(arquivo, nomeGame, notaGame)
+			print("Game {} cadastrado com a nota {} \n".format(nomeGame, notaGame))
+		else:
+			print("Nota inválida. Valor deve ser entre 0 e 10")
 	except:
-		print("Dados inválidos. Verifique se digitou no formato número.número corretamente")	
+		print("Dados inválidos. Verifique se digitou no formato decimal com pontos e não vírgulas")	
     elif op == 2:
         print('Listar itens \n')
         listarArquivo(arquivo)
