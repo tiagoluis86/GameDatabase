@@ -25,13 +25,13 @@ def listarArquivo(nomeArquivo):
     finally:
         a.close()
 
-def cadastrarAluno(nomeArquivo, nomeAluno, notaAluno):
+def cadastrarGame(nomeArquivo, nomeGame, notaGame):
     try:
         a = open(nomeArquivo, 'at')
     except:
         print('Erro ao abrir o arquivo')
     else:
-        a.write('{}; {}\n'.format(nomeAluno, notaAluno))
+        a.write('{}; {}\n'.format(nomeGame, notaGame))
     finally:
         a.close()
 

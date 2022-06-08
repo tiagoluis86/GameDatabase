@@ -1,4 +1,4 @@
-from functions import valida_int, existeArquivo, listarArquivo, cadastrarAluno, criaArquivo
+from functions import valida_int, existeArquivo, listarArquivo, cadastrarGame, criaArquivo
 
 #programa principal
 
@@ -15,13 +15,17 @@ while True:
     print('MENU \n')
     print('1 - Cadastrar game 2 - Consultar games 3 - Sair')
 
-    op = valida_int('O que você deseja fazer?', 1, 3)
+    op = valida_int('O que você deseja fazer? ', 1, 3)
 
     if op == 1:
         print('Cadastrar Game \n')
-        nomeAluno = input('Nome do game')
-        notaAluno = int(input('Nota do game'))
-        cadastrarAluno(arquivo, nomeAluno, notaAluno)
+        nomeGame = input('Nome do game: ')
+        try:
+		notaGame = float(input('Nota do game (0.0 à 10): '))
+		cadastrarGame(arquivo, nomeGame, notaGame)
+		print("Game {} cadastrado com a nota {} \n".format(nomeGame, notaGame))
+	except:
+		print("Dados inválidos. Verifique se digitou no formato número.número corretamente")	
     elif op == 2:
         print('Listar itens \n')
         listarArquivo(arquivo)
